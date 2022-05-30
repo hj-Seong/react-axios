@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 
 const NewsList = () => {
-  const [news, setNews] = useState("");
+  // []을 사용하면 map을 사용시 오류가 뜨지않음
+  // 단, 처음에 값을 받아오는 시간동안 배열부분에 빈 화면이 출력된다
+  const [news, setNews] = useState([]);
 
   // async와 await 이용
   const onClick = async () => {
@@ -28,6 +30,7 @@ const NewsList = () => {
 
   // map을 사용하기 위해서는 배열의 값이 비어있으면 오류가 나기 때문에
   // news 값이 없다면 return 값을 null을 준다
+  // news 의 값이 빈 배열이면 오류가 나지 않는다
   if (!news) {
     return null;
   }
