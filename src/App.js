@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import "./App.css";
 
 function App() {
+  // async와 await 이용
+  const onClick = async () => {
+    const response = await axios.get("https://newsapi.org/v2/top-headlines?country=kr&apiKey=c4c09dd0ba45435cb60e93cd10259c2a");
+    console.log(response);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={onClick}>누르세요</button>
     </div>
   );
 }
